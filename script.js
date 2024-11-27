@@ -71,7 +71,7 @@ function updateProgress() {
 function updateScore(isCorrect) {
     if (isCorrect) {
         streak++;
-        score += (8 * streak); // Points for maintaining a streak
+        score += (1 + streak); // Base point + streak bonus
     } else {
         streak = 0;
     }
