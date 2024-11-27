@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the NATO phonetic alphabet (nautical alphabet) with this interactive trainer. Practice and master the international radio alphabet used by sailors, pilots, and military personnel.">
+    <meta name="keywords" content="nautical alphabet, NATO phonetic alphabet, radio alphabet, maritime communication, sailing terms, navigation training">
+    <meta name="author" content="Raf">
+    <meta property="og:title" content="Nautical Alphabet Trainer">
+    <meta property="og:description" content="Master the NATO phonetic alphabet with our interactive learning tool. Perfect for sailors, pilots, and radio operators.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nautical Alphabet Trainer">
+    <meta name="twitter:description" content="Learn the NATO phonetic alphabet interactively. Perfect for maritime communication and radio operations.">
+    <title>Nautical Alphabet Trainer | Learn NATO Phonetic Alphabet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="ocean" aria-hidden="true">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <main class="container">
+        <header>
+            <h1><i class="fas fa-anchor" aria-hidden="true"></i> Learn the Nautical Alphabet</h1>
+        </header>
+        <nav class="toggle-container" role="navigation">
+            <div class="toggle-switch">
+                <input type="checkbox" id="mode-toggle" class="toggle-input" aria-label="Switch between Learn and Practice modes">
+                <label for="mode-toggle" class="toggle-label">
+                    <span class="toggle-text learn">Learn</span>
+                    <span class="toggle-text practice">Practice</span>
+                </label>
+            </div>
+        </nav>
+        <section id="game-container" aria-live="polite">
+            <div id="learning-mode" class="active-mode">
+                <article class="card">
+                    <div class="letter" aria-label="Current letter">A</div>
+                    <div class="word" aria-label="Corresponding word">Alpha</div>
+                </article>
+                <div class="controls">
+                    <button id="prev-btn" aria-label="Previous letter"><i class="fas fa-chevron-left" aria-hidden="true"></i> Previous</button>
+                    <button id="next-btn" aria-label="Next letter">Next <i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div id="practice-mode" class="hidden">
+                <article class="question-card">
+                    <div class="letter" aria-label="Letter to practice">?</div>
+                    <input type="text" 
+                           id="answer-input" 
+                           placeholder="Type the word..." 
+                           aria-label="Type the nautical word"
+                           autocomplete="off">
+                    <div id="feedback" class="feedback" role="alert" aria-live="polite"></div>
+                </article>
+                <div class="button-group">
+                    <button id="check-btn">Check Answer</button>
+                    <button id="skip-btn" class="hidden">Skip</button>
+                </div>
+                <div class="score-container">
+                    <p>Score: <span id="score">0</span> 
+                        <i class="fas fa-info-circle" 
+                           data-tooltip="Scoring System:
+                           • Correct answer: +10 points
+                           • Streak bonus: +10 points per correct answer in a row
+                           • Wrong answer: No points, streak resets
+                           • Skipping: No points, streak resets"
+                           aria-label="Scoring system information"></i>
+                    </p>
+                    <p>Streak: <span id="streak">0</span> <span aria-hidden="true">🔥</span></p>
+                </div>
+            </div>
+        </section>
+        <div class="mode-selector" style="display: none;" aria-hidden="true">
+            <button id="learn-mode-btn" class="active">Learn</button>
+            <button id="practice-mode-btn">Practice</button>
+        </div>
+        <div id="progress" role="progressbar" aria-label="Learning progress">
+            <div class="progress-bar"></div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Made with <span aria-label="love">🧉</span> by Raf</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
