@@ -183,6 +183,26 @@ answerInput.addEventListener('keypress', (e) => {
     }
 });
 
+// Create tooltip element
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipIcon = document.querySelector('.fa-info-circle');
+    if (tooltipIcon) {
+        const tooltipDiv = document.createElement('div');
+        tooltipDiv.className = 'tooltip-content';
+        tooltipDiv.innerHTML = `
+            <div class="tooltip-title">Scoring system</div>
+            <div class="tooltip-body">
+                • Correct answer: +1 point
+                • Streak bonus: +1 point per correct answer in a row
+                • Wrong answer: no points, streak resets
+                • Skip: no points, streak resets
+            </div>
+        `;
+        tooltipIcon.appendChild(tooltipDiv);
+        tooltipIcon.removeAttribute('data-tooltip');
+    }
+});
+
 // Initialize the app
 updateLearningCard();
 updateProgress();

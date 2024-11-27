@@ -292,14 +292,14 @@ input[type="text"]:focus {
 }
 
 /* Tooltip styles */
-[data-tooltip] {
+.fa-info-circle {
     position: relative;
     cursor: help;
     color: var(--accent-secondary);
 }
 
-[data-tooltip]:hover::before {
-    content: attr(data-tooltip);
+.tooltip-content {
+    display: none;
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -307,8 +307,10 @@ input[type="text"]:focus {
     padding: 12px 16px;
     background: var(--bg-primary);
     color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 10pt;
-    white-space: pre;
+    white-space: pre-line;
+    word-wrap: break-word;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border);
@@ -316,35 +318,31 @@ input[type="text"]:focus {
     width: max-content;
     max-width: 280px;
     text-align: left;
-    line-height: 1.6;
 }
 
-[data-tooltip]:hover::before strong {
+.fa-info-circle:hover .tooltip-content {
+    display: block;
+}
+
+.tooltip-title {
     font-weight: 600;
-    color: var(--accent-primary);
+    margin-bottom: 4px;
 }
 
-[data-tooltip]:hover::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 6px solid transparent;
-    border-top-color: var(--border);
-    z-index: 1000;
+.tooltip-body {
+    line-height: 1.4;
 }
 
 /* Color indicators in tooltip */
-[data-tooltip] .correct-text {
+.tooltip-content .correct-text {
     color: var(--success);
 }
 
-[data-tooltip] .wrong-text {
+.tooltip-content .wrong-text {
     color: var(--error);
 }
 
-[data-tooltip] .skip-text {
+.tooltip-content .skip-text {
     color: var(--text-secondary);
 }
 
